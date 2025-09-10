@@ -1,7 +1,3 @@
-Here’s a polished **README** for your Nimbus Weather & News App, incorporating the **task description** and your **project structure** from the image:
-
----
-
 # Nimbus - Weather & News Aggregator App
 
 Nimbus is a **React Native** and **TypeScript** app that aggregates weather information and news headlines, with a unique logic to filter news based on the current weather. This project was built as part of an assessment task for i2Global.
@@ -163,9 +159,12 @@ npx expo start
 
 ## Screenshots
 
-*(Add screenshots of your app here, showing Home Screen, Settings Screen, and any unique UI elements.)*
-
----
+---<img width="200" height="450" alt="Screenshot_1757493228" src="https://github.com/user-attachments/assets/3c49e65c-3820-437a-b062-51017353023f" />
+---<img width="200" height="450" alt="Screenshot_1757493391" src="https://github.com/user-attachments/assets/e13ac6d6-d573-4328-a101-0262d500d94a" />
+---<img width="200" height="450" alt="Screenshot_1757493429" src="https://github.com/user-attachments/assets/bfc9b4a5-0e20-445b-b630-55442772330f" />
+---<img width="200" height="450" alt="Screenshot_1757493465" src="https://github.com/user-attachments/assets/c4835b0f-861f-489f-a64d-989947b2cecc" />
+---<img width="200" height="450" alt="Screenshot_1757493509" src="https://github.com/user-attachments/assets/834f62ec-104b-4191-87b8-55b5e623a3db" />
+---<img width="200" height="450" alt="Screenshot_1757493561" src="https://github.com/user-attachments/assets/0a6c24e1-b7c0-4108-bc56-f2a875f77cb8" />
 
 ## Notes
 
