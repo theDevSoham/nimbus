@@ -2,7 +2,7 @@
 import { Article, NewsResponse } from "@/types/news";
 import axios from "axios";
 
-const NEWS_API_KEY = "d76720c371fd49c8843d213d382c7550"; // Replace with your real key
+const NEWS_API_KEY = process.env.EXPO_PUBLIC_NEWS_API_KEY; // Replace with your real key
 const BASE_URL = "https://newsapi.org/v2";
 
 export type WeatherType = "cold" | "hot" | "cool";

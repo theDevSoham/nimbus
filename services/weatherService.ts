@@ -2,8 +2,8 @@ import { CurrentWeatherResponse, ForecastResponse } from "@/types/weather";
 import axios from "axios";
 
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
-// const { OPENWEATHER_API_KEY } = process.env;
-const OPENWEATHER_API_KEY = "bf8e9df927c53e548be9d17bb2bdb668";
+const OPENWEATHER_API_KEY = process.env.EXPO_PUBLIC_OPENWEATHER_API_KEY;
+// const OPENWEATHER_API_KEY = "bf8e9df927c53e548be9d17bb2bdb668";
 
 if (!OPENWEATHER_API_KEY) {
   throw new Error("OPENWEATHER_API_KEY is required in .env file");
