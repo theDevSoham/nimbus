@@ -9,7 +9,7 @@ if (!OPENWEATHER_API_KEY) {
   throw new Error("OPENWEATHER_API_KEY is required in .env file");
 }
 
-const unitsMap = {
+export const unitsMap = {
   Celsius: "metric",
   Farenheit: "imperial",
 };

@@ -12,6 +12,7 @@ import "react-native-reanimated";
 
 import { useColorScheme } from "@/components/useColorScheme";
 import { LocationProvider } from "@/context/LocationContext";
+import { SettingsProvider } from "@/context/SettingsContext";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -54,16 +55,20 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <LocationProvider>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack initialRouteName="locationPermission">
-          <Stack.Screen
-            name="locationPermission"
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        </Stack>
-      </ThemeProvider>
-    </LocationProvider>
+    <SettingsProvider>
+      <LocationProvider>
+        <ThemeProvider
+          value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+        >
+          <Stack initialRouteName="locationPermission">
+            <Stack.Screen
+              name="locationPermission"
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          </Stack>
+        </ThemeProvider>
+      </LocationProvider>
+    </SettingsProvider>
   );
 }

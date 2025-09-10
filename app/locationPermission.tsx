@@ -11,12 +11,12 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import * as Location from "expo-location";
-import { useRouter } from "expo-router";
+import { Redirect, useRouter } from "expo-router";
 import { useLocation } from "@/context/LocationContext";
 
 export default function LocationPermissionScreen() {
   const router = useRouter();
-  const { refreshLocation } = useLocation();
+  const { location, refreshLocation } = useLocation();
 
   const requestLocationPermission = useCallback(async () => {
     try {
@@ -51,6 +51,10 @@ export default function LocationPermissionScreen() {
       Alert.alert("Error", "Something went wrong while requesting location.");
     }
   }, [router, refreshLocation]);
+
+  if (location) {
+    return <Redirect href="/(tabs)" />;
+  }
 
   return (
     <View style={styles.container}>

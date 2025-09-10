@@ -19,8 +19,9 @@ const axiosInstance = axios.create({
 });
 
 export async function fetchFilteredNews(
-  country: string,
-  weather: WeatherType
+  country: string = "in",
+  weather: WeatherType,
+  filter: boolean = true
 ): Promise<Article[]> {
   try {
     const { data } = await axiosInstance.get<NewsResponse>("/top-headlines", {
@@ -33,6 +34,10 @@ export async function fetchFilteredNews(
 
     if (data.status !== "ok") {
       throw new Error("News API error");
+    }
+
+    if (!filter) {
+      return data.articles;
     }
 
     const keywords = keywordMap[weather];
