@@ -1,10 +1,9 @@
+import { CurrentWeatherResponse, ForecastResponse } from "@/types/weather";
 import axios from "axios";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
-const { OPENWEATHER_API_KEY } = process.env;
+// const { OPENWEATHER_API_KEY } = process.env;
+const OPENWEATHER_API_KEY = "bf8e9df927c53e548be9d17bb2bdb668";
 
 if (!OPENWEATHER_API_KEY) {
   throw new Error("OPENWEATHER_API_KEY is required in .env file");
@@ -27,14 +26,17 @@ export const getCurrentWeather = async (
   unit: keyof typeof unitsMap
 ) => {
   try {
-    const response = await axiosInstance.get("/weather", {
-      params: {
-        lat: lat.toString(),
-        lon: lon.toString(),
-        appid: OPENWEATHER_API_KEY,
-        units: unitsMap[unit], // Use metric units for Celsius
-      },
-    });
+    const response = await axiosInstance.get<CurrentWeatherResponse>(
+      "/weather",
+      {
+        params: {
+          lat: lat.toString(),
+          lon: lon.toString(),
+          appid: OPENWEATHER_API_KEY,
+          units: unitsMap[unit], // Use metric units for Celsius
+        },
+      }
+    );
     return response.data;
   } catch (error: any) {
     console.error("Error fetching current weather:", error?.message);
@@ -49,7 +51,7 @@ export const getWeatherForecast = async (
   unit: keyof typeof unitsMap
 ) => {
   try {
-    const response = await axiosInstance.get("/forecast", {
+    const response = await axiosInstance.get<ForecastResponse>("/forecast", {
       params: {
         lat: lat.toString(),
         lon: lon.toString(),
